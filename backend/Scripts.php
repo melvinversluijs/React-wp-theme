@@ -15,7 +15,7 @@ class Scripts
      */
     public function __construct()
     {
-        $this->addReact();
+        add_action('wp_enqueue_scripts', [$this, 'addReact']);
         $this->removeDefaults();
     }
 
@@ -24,7 +24,7 @@ class Scripts
      *
      * @return void
      */
-    protected function addReact()
+    public function addReact()
     {
         // Add React JS.
         \wp_enqueue_script(self::REACT_WP_THEME, \get_template_directory_uri() . '/frontend/dist/main.js', [], '0.1', true);
