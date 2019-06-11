@@ -32,7 +32,7 @@ class Scripts
         // Add Blog title name and api endpoint as JS variable.
         \wp_localize_script(self::REACT_WP_THEME, 'WP_React', [
             'title'   => \get_bloginfo('name', 'display'),
-            "api_url" => \esc_url_raw(\get_rest_url(null, "/wp/v2")),
+            "api_url" => \esc_url_raw(\get_rest_url(null, "/")),
         ]);
     }
 

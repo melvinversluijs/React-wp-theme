@@ -63,10 +63,22 @@ class General extends AbstractApi
      */
     public function getSiteLogo(): \WP_REST_Response
     {
-        $custom_logo_id = get_theme_mod('custom_logo');
-        $image_alt      = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', true);
-        $image          = wp_get_attachment_image_src($custom_logo_id, 'full');
+        $response = null;
+        $imageId  = get_theme_mod('custom_logo');
 
-        return new \WP_REST_Response($image);
+        // Make sure there is an image.
+        if ($imageId) {
+            // Get alt.
+            $alt = get_post_meta($imageId, '_wp_attachment_image_alt', true);
+
+            // Get src, should always be the first item in the list.
+            $image = wp_get_attachment_image_src($imageId, 'full');
+            [$src] = $image;
+
+            // Create a response.
+            $response = compact('src', 'alt');
+        }
+
+        return new \WP_REST_Response($response);
     }
 }
