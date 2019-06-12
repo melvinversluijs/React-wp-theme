@@ -4,6 +4,9 @@ import React from "react";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
 
+/**
+ * Header component.
+ */
 const Header = () => {
   return (
     <header>
@@ -13,4 +16,5 @@ const Header = () => {
   );
 };
 
+// Export header.
 export default Header;
