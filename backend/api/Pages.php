@@ -23,6 +23,7 @@ class Pages extends AbstractApi
 
     /**
      * Register route to get the home page.
+     * GET /react-theme/v1/pages/home
      *
      * @return void
      */
@@ -41,9 +42,11 @@ class Pages extends AbstractApi
      */
     public function getHomePage(): \WP_REST_Response
     {
+        $home = null;
         // Get the ID, and from that the page object.
-        $homeId = \get_option('page_on_front');
-        $home   = \get_page($homeId);
+        if ($homeId = \get_option('page_on_front')) {
+            $home = \get_page($homeId);
+        }
 
         // Return as json.
         return new \WP_REST_Response($home);

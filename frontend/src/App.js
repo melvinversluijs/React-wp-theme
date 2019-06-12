@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 // Bring in Redux.
 import { Provider } from "react-redux";
@@ -10,6 +10,7 @@ import setBaseUrl from "./utils/setBaseUrl";
 
 // Bring in components.
 import Header from "./components/layout/Header";
+import Home from "./components/layout/Home";
 
 /**
  * App component.
@@ -22,7 +23,7 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Header />
-        <div>Test</div>
+        <Route path="/" component={Home} />
       </BrowserRouter>
     </Provider>
   );
