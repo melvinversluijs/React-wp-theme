@@ -12,6 +12,9 @@ import setBaseUrl from "./utils/setBaseUrl";
 import Header from "./components/layout/Header";
 import Home from "./components/layout/Home";
 
+// Bring in styling.
+import "./scss/App.scss";
+
 /**
  * App component.
  */

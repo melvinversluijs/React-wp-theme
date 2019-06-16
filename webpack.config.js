@@ -1,6 +1,11 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
   devtool: "inline-source-map",
-  entry: "./frontend/src/main.js",
+  target: "web",
+  entry: {
+    main: "./frontend/src/main.js"
+  },
   output: {
     path: `${__dirname}/frontend/dist`,
     publicPath: "/",
@@ -16,7 +21,7 @@ module.exports = {
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        use: ["style-loader", "css-loader", "sass-loader"]
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/,
@@ -24,5 +29,10 @@ module.exports = {
         use: ["url-loader"]
       }
     ]
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "style.css"
+    })
+  ]
 };

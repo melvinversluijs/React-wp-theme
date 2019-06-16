@@ -16,6 +16,7 @@ class Scripts
     public function __construct()
     {
         add_action('wp_enqueue_scripts', [$this, 'addReact']);
+        add_action('wp_enqueue_scripts', [$this, 'addStyling']);
         $this->removeDefaults();
     }
 
@@ -34,6 +35,16 @@ class Scripts
             'title'   => \get_bloginfo('name', 'display'),
             "api_url" => \esc_url_raw(\get_rest_url(null, "/")),
         ]);
+    }
+
+    /**
+     * Add styling to react.
+     *
+     * @return void
+     */
+    public function addStyling()
+    {
+        \wp_enqueue_style(self::REACT_WP_THEME, \get_template_directory_uri() . '/frontend/dist/style.css', [], '0.1');
     }
 
     /**

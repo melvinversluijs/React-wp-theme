@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -18,19 +18,19 @@ const MenuItem = ({ menuItem: { ID, title, url, object, children } }) => {
 
   // If there are no children, just return parent html.
   if (!children) {
-    return parentHtml;
+    return <li className="no-children">{parentHtml}</li>;
   }
 
   // Else go through children recursively.
   return (
-    <Fragment>
+    <li className="with-children">
       {parentHtml}
       <ul>
         {Object.keys(children).map(key => (
           <MenuItem key={children[key].ID} menuItem={children[key]} />
         ))}
       </ul>
-    </Fragment>
+    </li>
   );
 };
 
