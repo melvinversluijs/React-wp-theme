@@ -16,12 +16,16 @@ const Logo = ({ general: { logo, loading }, getLogo }) => {
   }, [getLogo]);
 
   return (
-    <div className="logo">
-      <Link to="/">
+    <div className="header__logo">
+      <Link className="header__logo-link" to="/">
         {!loading && logo ? (
-          <img src={logo.src} alt={logo.alt ? logo.alt : WP_React.title} />
+          <img
+            className="header__logo-img"
+            src={logo.src}
+            alt={logo.alt ? logo.alt : WP_React.title}
+          />
         ) : (
-          <span className="large">{WP_React.title}</span>
+          <span className="header__logo-text">{WP_React.title}</span>
         )}
       </Link>
     </div>

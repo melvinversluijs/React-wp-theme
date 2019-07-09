@@ -11,21 +11,29 @@ const MenuItem = ({ menuItem: { ID, title, url, object, children } }) => {
   // Build parent item html.
   const parentHtml =
     object === "custom" ? (
-      <a href={url}>{title}</a>
+      <a href={url} className="header__nav-link">
+        {title}
+      </a>
     ) : (
-      <Link to={`/${object}/${ID}`}>{title}</Link>
+      <Link className="header__nav-link" to={`/${object}/${ID}`}>
+        {title}
+      </Link>
     );
 
   // If there are no children, just return parent html.
   if (!children) {
-    return <li className="no-children">{parentHtml}</li>;
+    return (
+      <li className="header__nav-item header__nav-item--no-children">
+        {parentHtml}
+      </li>
+    );
   }
 
   // Else go through children recursively.
   return (
-    <li className="with-children">
+    <li className="header__nav-item header__nav-item--with-children">
       {parentHtml}
-      <ul>
+      <ul className="header__nav-list">
         {Object.keys(children).map(key => (
           <MenuItem key={children[key].ID} menuItem={children[key]} />
         ))}

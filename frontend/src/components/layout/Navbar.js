@@ -21,8 +21,8 @@ const Navbar = ({ navigation: { main_menu, loading }, getMainMenu }) => {
   }
 
   return (
-    <nav>
-      <ul className="main-navigation">
+    <nav className="header__nav">
+      <ul className="header__nav-list">
         {Object.keys(main_menu).map(key => (
           <MenuItem key={main_menu[key].ID} menuItem={main_menu[key]} />
         ))}
