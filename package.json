@@ -32,5 +32,11 @@
   "scripts": {
     "build": "webpack --mode=production",
     "dev": "webpack --watch --mode=development"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "file-loader": "^4.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0"
   }
 }

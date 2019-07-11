@@ -2,6 +2,7 @@
 node_modules
 .vscode
 .idea
+yarn-error.log
 
 # Created by https://www.gitignore.io/api/linux,macos,windows,phpstorm,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=linux,macos,windows,phpstorm,visualstudiocode

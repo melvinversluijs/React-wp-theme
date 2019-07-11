@@ -1,9 +1,10 @@
 .header {
-  background-color: $color-blue-dark;
+  background-color: $color-primary;
   display: flex;
   align-items: center;
-  padding: 1.5rem 8rem;
+  padding: 1rem 8rem;
 
+  // Header logo.
   &__logo {
     margin-right: auto;
   }
@@ -11,12 +12,18 @@
   &__logo-link:link,
   &__logo-link:visited {
     text-decoration: none;
+    color: $color-white;
+  }
+
+  &__logo-text {
+    font-size: 1.5rem;
   }
 
   &__logo-img {
-    max-height: 4rem;
+    max-height: 2.5rem;
   }
 
+  // Header navigation.
   &__nav {
     & > .header__nav-list {
       display: flex;
@@ -37,22 +44,18 @@
 
   &__nav-item {
     &--with-children > .header__nav-list {
-      visibility: hidden;
-      opacity: 0;
-      width: 0;
-      height: 0;
+      display: none;
     }
   }
 
   &__nav-link:link,
   &__nav-link:visited {
     text-decoration: none;
-    color: $color-beige;
+    color: $color-white;
     transition: all 0.2s;
   }
 
   &__nav-link:hover {
-    color: $color-white;
     border-bottom: 1px solid currentColor;
   }
 }

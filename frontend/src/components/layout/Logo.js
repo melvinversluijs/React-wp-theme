@@ -25,7 +25,7 @@ const Logo = ({ general: { logo, loading }, getLogo }) => {
             alt={logo.alt ? logo.alt : WP_React.title}
           />
         ) : (
-          <span className="header__logo-text">{WP_React.title}</span>
+          <h2 className="header__logo-text">{WP_React.title}</h2>
         )}
       </Link>
     </div>
