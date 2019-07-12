@@ -22,7 +22,7 @@ const Navbar = ({ navigation: { main_menu, loading }, getMainMenu }) => {
 
   return (
     <nav className="header__nav">
-      <ul className="header__nav-list">
+      <ul className="header__nav-list header__nav-list--root">
         {Object.keys(main_menu).map(key => (
           <MenuItem key={main_menu[key].ID} menuItem={main_menu[key]} />
         ))}

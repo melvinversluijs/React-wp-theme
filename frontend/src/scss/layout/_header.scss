@@ -24,35 +24,57 @@
   }
 
   // Header navigation.
-  &__nav {
-    & > .header__nav-list {
+  &__nav-list {
+    list-style: none;
+
+    &--root {
       display: flex;
 
-      & > .header__nav-item {
-        display: inline-block;
+      .header__nav-item:not(:last-child) {
+        margin-right: 0.8rem;
+      }
+    }
+
+    &:not(.header__nav-list--root) {
+      display: none;
+      background-color: $color-primary;
+      padding: 0.5rem;
+
+      .header__nav-item {
+        padding: 0.5rem;
       }
 
-      & > .header__nav-item:not(:last-of-type) {
-        margin-right: 1.5rem;
+      .header__nav-item:not(:last-child) {
+        border-bottom: 1px solid $color-white;
       }
     }
   }
 
-  &__nav-list {
-    list-style-type: none;
-  }
+  &__nav-item--with-children {
+    position: relative;
 
-  &__nav-item {
-    &--with-children > .header__nav-list {
-      display: none;
+    &:hover > .header__nav-list {
+      display: block;
+      position: absolute;
+      width: auto;
+      height: auto;
+
+      &--level-1 {
+        top: 1.5rem;
+      }
+
+      &--level-2 {
+        top: 0;
+        left: calc(100% + 0.5rem);
+      }
     }
   }
 
   &__nav-link:link,
   &__nav-link:visited {
+    display: inline-block;
     text-decoration: none;
     color: $color-white;
-    transition: all 0.2s;
   }
 
   &__nav-link:hover {

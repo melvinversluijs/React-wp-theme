@@ -7,7 +7,13 @@ import PropTypes from "prop-types";
  *
  * @param {Object} props
  */
-const MenuItem = ({ menuItem: { ID, title, url, object, children } }) => {
+const MenuItem = ({
+  menuItem: { ID, title, url, object, children },
+  level
+}) => {
+  // If no level was given, use 0.
+  const menuLevel = level ? level + 1 : 1;
+
   // Build parent item html.
   const parentHtml =
     object === "custom" ? (
@@ -33,9 +39,13 @@ const MenuItem = ({ menuItem: { ID, title, url, object, children } }) => {
   return (
     <li className="header__nav-item header__nav-item--with-children">
       {parentHtml}
-      <ul className="header__nav-list">
+      <ul className={`header__nav-list header__nav-list--level-${menuLevel}`}>
         {Object.keys(children).map(key => (
-          <MenuItem key={children[key].ID} menuItem={children[key]} />
+          <MenuItem
+            key={children[key].ID}
+            menuItem={children[key]}
+            level={menuLevel}
+          />
         ))}
       </ul>
     </li>
@@ -44,7 +54,8 @@ const MenuItem = ({ menuItem: { ID, title, url, object, children } }) => {
 
 // Set component property types.
 MenuItem.propTypes = {
-  menuItem: PropTypes.object.isRequired
+  menuItem: PropTypes.object.isRequired,
+  level: PropTypes.number
 };
 
 // Export component.
