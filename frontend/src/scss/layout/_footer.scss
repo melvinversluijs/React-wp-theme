@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: $color-grey-dark;
+
+  &__copyright {
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    color: $color-white;
+    font-weight: 700;
+  }
+}

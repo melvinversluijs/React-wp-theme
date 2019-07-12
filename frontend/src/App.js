@@ -11,6 +11,7 @@ import setBaseUrl from "./utils/setBaseUrl";
 // Bring in components.
 import Header from "./components/layout/Header";
 import Home from "./components/layout/Home";
+import Footer from "./components/layout/Footer";
 
 // Bring in styling.
 import "./scss/App.scss";
@@ -26,7 +27,10 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Header />
-        <Route path="/" component={Home} />
+        <main className="content">
+          <Route path="/" component={Home} />
+        </main>
+        <Footer />
       </BrowserRouter>
     </Provider>
   );
