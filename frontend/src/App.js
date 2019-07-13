@@ -15,6 +15,7 @@ import Footer from "./components/layout/Footer";
 
 // Bring in styling.
 import "./scss/App.scss";
+import PostsOverview from "./components/PostsOverview/PostsOverview";
 
 /**
  * App component.
@@ -28,7 +29,9 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <main className="content">
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/posts" component={PostsOverview} />
+          <Route exact path="/blog" component={PostsOverview} />
         </main>
         <Footer />
       </BrowserRouter>

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getHomePage } from "../../actions/pages";
+import PostsOverview from "../PostsOverview/PostsOverview";
 
 /**
  * Home component.
@@ -21,7 +22,7 @@ const Home = ({ pages: { home, loading }, getHomePage }) => {
 
   // If no homepage was found, show blog overview.
   if (!home) {
-    return <div>Blog overview</div>;
+    return <PostsOverview />;
   }
 
   return (
