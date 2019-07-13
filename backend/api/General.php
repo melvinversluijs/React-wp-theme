@@ -19,7 +19,18 @@ class General extends AbstractApi
     public function __construct()
     {
         \add_action('after_setup_theme', [$this, 'addCustomLogo']);
+        \add_action('after_setup_theme', [$this, 'addFeaturedImageSupport']);
         \add_action('rest_api_init', [$this, 'registerGetSiteLogo']);
+    }
+
+    /**
+     * Add featured image support.
+     *
+     * @return void
+     */
+    public function addFeaturedImageSupport(): void
+    {
+        add_theme_support('post-thumbnails');
     }
 
     /**

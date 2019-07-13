@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 const PostItem = ({ post }) => {
   return (
     <div className="posts-overview__card">
-      <h3 className="posts-overview-post-name">{post.title.rendered}</h3>
+      <h3 className="posts-overview__post-name">{post.title.rendered}</h3>
       <p
-        className="posts-overview-post-excerpt"
+        className="posts-overview__post-excerpt"
         dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
       />
-      <Link to={`/post/${post.id}`} className="posts-overview-post-link">
+      <Link to={`/post/${post.id}`} className="posts-overview__post-link">
         Read more
       </Link>
     </div>

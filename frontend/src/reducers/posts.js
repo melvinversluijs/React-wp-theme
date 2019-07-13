@@ -3,6 +3,7 @@ import { GET_POSTS, POSTS_ERROR } from "../actions/types";
 // Set initial state.
 const initialState = {
   posts: [],
+  currentPage: 1,
   currentPost: {},
   loading: true
 };
@@ -17,7 +18,8 @@ export default function(state = initialState, action) {
     case GET_POSTS:
       return {
         ...state,
-        posts: payload,
+        posts: [...state.posts, ...payload],
+        currentPage: state.currentPage + 1,
         loading: false
       };
     case POSTS_ERROR:

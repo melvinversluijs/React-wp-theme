@@ -7,17 +7,40 @@ import PostItem from "./PostItem";
 /**
  * PostsOverview component.
  */
-const PostsOverview = ({ posts: { posts, loading }, getPosts }) => {
+const PostsOverview = ({
+  posts: { posts, loading, currentPage },
+  getPosts
+}) => {
   // Load page after loading component.
   useEffect(() => {
-    getPosts();
+    if (posts.length === 0) {
+      loading = true;
+      getPosts(currentPage);
+    }
   }, [getPosts]);
 
-  return (
+  /**
+   * Function to load more items.
+   */
+  const handleLoadMore = () => {
+    getPosts(currentPage);
+  };
+
+  return loading ? (
+    <div>Loading</div>
+  ) : (
     <div className="posts-overview">
-      {posts.map(post => (
-        <PostItem post={post} key={post.id} />
-      ))}
+      <div className="posts-overview__container">
+        {posts.map(post => (
+          <PostItem post={post} key={post.id} />
+        ))}
+      </div>
+      <button
+        className="posts-overview__load-more"
+        onClick={() => handleLoadMore()}
+      >
+        Load more posts
+      </button>
     </div>
   );
 };
