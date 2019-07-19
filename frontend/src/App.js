@@ -15,7 +15,8 @@ import Footer from "./components/layout/Footer";
 
 // Bring in styling.
 import "./scss/App.scss";
-import PostsOverview from "./components/PostsOverview/PostsOverview";
+import PostsOverview from "./components/posts/PostsOverview";
+import Post from "./components/post/Post";
 
 /**
  * App component.
@@ -32,6 +33,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/posts" component={PostsOverview} />
           <Route exact path="/blog" component={PostsOverview} />
+          <Route exact path="/post/:id" component={Post} />
         </main>
         <Footer />
       </BrowserRouter>

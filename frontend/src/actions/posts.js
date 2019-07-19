@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_POSTS, POSTS_ERROR } from "./types";
+import { GET_POSTS, GET_CURRENT_POST, POSTS_ERROR } from "./types";
 
 /**
  * Get posts.
@@ -12,6 +12,29 @@ export const getPosts = (page = 1) => async dispatch => {
     // Dispatch get_posts.
     dispatch({
       type: GET_POSTS,
+      payload: res.data
+    });
+  } catch (error) {
+    // Properly handle errors.
+    dispatch({
+      type: POSTS_ERROR
+    });
+  }
+};
+
+/**
+ * Get post by id.
+ *
+ * @param {int|string} pageId
+ */
+export const getPost = pageId => async dispatch => {
+  try {
+    // Get post by id.
+    const res = await axios.get(`/wp/v2/posts/${pageId}?_embed`);
+
+    // Set resulting post as payload for dispatch.
+    dispatch({
+      type: GET_CURRENT_POST,
       payload: res.data
     });
   } catch (error) {

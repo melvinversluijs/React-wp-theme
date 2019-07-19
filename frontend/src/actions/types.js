@@ -5,4 +5,5 @@ export const GET_MAIN_MENU = "GET_MAIN_MENU";
 export const PAGES_ERROR = "PAGES_ERROR";
 export const GET_HOME_PAGE = "GET_HOME_PAGE";
 export const GET_POSTS = "GET_POSTS";
+export const GET_CURRENT_POST = "GET_CURRENT_POST";
 export const POSTS_ERROR = "POSTS_ERROR";
