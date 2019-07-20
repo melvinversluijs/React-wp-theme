@@ -21,7 +21,8 @@ export const getLogo = () => async dispatch => {
   } catch (error) {
     // Handle errors.
     dispatch({
-      type: GET_LOGO_FAILURE
+      type: GET_LOGO_FAILURE,
+      payload: error
     });
   }
 };

@@ -29,7 +29,8 @@ export const getHomePage = () => async dispatch => {
   } catch (error) {
     // Handle errors.
     dispatch({
-      type: GET_HOME_PAGE_FAILURE
+      type: GET_HOME_PAGE_FAILURE,
+      payload: error
     });
   }
 };
@@ -57,7 +58,8 @@ export const getPage = pageId => async dispatch => {
   } catch (error) {
     // Handle errors.
     dispatch({
-      type: GET_PAGE_FAILURE
+      type: GET_PAGE_FAILURE,
+      payload: error
     });
   }
 };

@@ -19,7 +19,7 @@ const Post = ({ post, match, getPost }) => {
     post && (
       <div className="post">
         <h1 className="post__title">{post.title.rendered}</h1>
-        <p
+        <div
           className="post__content"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         />

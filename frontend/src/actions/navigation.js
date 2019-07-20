@@ -26,7 +26,8 @@ export const getMainMenu = () => async dispatch => {
   } catch (error) {
     // Handle errors.
     dispatch({
-      type: GET_MAIN_MENU_FAILURE
+      type: GET_MAIN_MENU_FAILURE,
+      payload: error
     });
   }
 };

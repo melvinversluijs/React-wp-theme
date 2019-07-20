@@ -29,7 +29,8 @@ export const getPosts = (page = 1) => async dispatch => {
   } catch (error) {
     // Properly handle errors.
     dispatch({
-      type: GET_POSTS_FAILURE
+      type: GET_POSTS_FAILURE,
+      payload: error
     });
   }
 };
@@ -57,7 +58,8 @@ export const getPost = pageId => async dispatch => {
   } catch (error) {
     // Properly handle errors.
     dispatch({
-      type: GET_POST_FAILURE
+      type: GET_POST_FAILURE,
+      payload: error
     });
   }
 };

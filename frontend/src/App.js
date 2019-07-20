@@ -10,6 +10,7 @@ import setBaseUrl from "./utils/setBaseUrl";
 
 // Bring in components.
 import Loader from "./components/layout/Loader";
+import ErrorList from "./components/layout/ErrorList";
 import Header from "./components/layout/Header";
 import Home from "./components/layout/Home";
 import Footer from "./components/layout/Footer";
@@ -33,6 +34,7 @@ const App = () => {
         <Loader />
         <Header />
         <main className="content">
+          <ErrorList />
           <Route exact path="/" component={Home} />
           <Route exact path="/posts" component={PostsOverview} />
           <Route exact path="/post/:id" component={Post} />
