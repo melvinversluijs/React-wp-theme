@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
  * @param {Object} props
  */
 const MenuItem = ({
-  menuItem: { ID, title, url, object, children },
+  menuItem: { object_id, title, url, object, children },
   level
 }) => {
   // If no level was given, use 0.
@@ -21,7 +21,7 @@ const MenuItem = ({
         {title}
       </a>
     ) : (
-      <Link className="header__nav-link" to={`/${object}/${ID}`}>
+      <Link className="header__nav-link" to={`/${object}/${object_id}`}>
         {title}
       </Link>
     );

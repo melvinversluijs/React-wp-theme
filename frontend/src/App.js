@@ -17,6 +17,7 @@ import Footer from "./components/layout/Footer";
 import "./scss/App.scss";
 import PostsOverview from "./components/posts/PostsOverview";
 import Post from "./components/post/Post";
+import Page from "./components/page/Page";
 
 /**
  * App component.
@@ -32,8 +33,8 @@ const App = () => {
         <main className="content">
           <Route exact path="/" component={Home} />
           <Route exact path="/posts" component={PostsOverview} />
-          <Route exact path="/blog" component={PostsOverview} />
           <Route exact path="/post/:id" component={Post} />
+          <Route exact path="/page/:id" component={Page} />
         </main>
         <Footer />
       </BrowserRouter>

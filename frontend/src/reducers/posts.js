@@ -1,10 +1,10 @@
-import { GET_POSTS, POSTS_ERROR, GET_CURRENT_POST } from "../actions/types";
+import { GET_POSTS, POSTS_ERROR, GET_POST } from "../actions/types";
 
 // Set initial state.
 const initialState = {
   posts: [],
   currentPage: 1,
-  currentPost: {},
+  post: null,
   loading: true
 };
 
@@ -22,10 +22,10 @@ export default function(state = initialState, action) {
         currentPage: state.currentPage + 1,
         loading: false
       };
-    case GET_CURRENT_POST:
+    case GET_POST:
       return {
         ...state,
-        currentPost: payload,
+        post: payload,
         loading: false
       };
     case POSTS_ERROR:

@@ -38,7 +38,7 @@ const Post = ({
 
 // Set property types.
 Post.propTypes = {
-  post: PropTypes.object.isRequired,
+  post: PropTypes.object,
   loading: PropTypes.bool.isRequired,
   match: PropTypes.object.isRequired,
   getPost: PropTypes.func.isRequired
@@ -46,7 +46,7 @@ Post.propTypes = {
 
 // Map application state to local properties.
 const mapStateToProps = state => ({
-  post: state.posts.currentPost,
+  post: state.posts.post,
   loading: state.posts.loading
 });
 

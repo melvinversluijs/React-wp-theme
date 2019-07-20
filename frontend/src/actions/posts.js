@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_POSTS, GET_CURRENT_POST, POSTS_ERROR } from "./types";
+import { GET_POSTS, GET_POST, POSTS_ERROR } from "./types";
 
 /**
  * Get posts.
@@ -34,7 +34,7 @@ export const getPost = pageId => async dispatch => {
 
     // Set resulting post as payload for dispatch.
     dispatch({
-      type: GET_CURRENT_POST,
+      type: GET_POST,
       payload: res.data
     });
   } catch (error) {
