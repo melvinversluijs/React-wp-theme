@@ -9,7 +9,7 @@ import { getLogo } from "../../actions/general";
  *
  * @param {Object} param0
  */
-const Logo = ({ general: { logo, loading }, getLogo }) => {
+const Logo = ({ logo, getLogo }) => {
   // Call getLogo when component is loaded.
   useEffect(() => {
     getLogo();
@@ -18,7 +18,7 @@ const Logo = ({ general: { logo, loading }, getLogo }) => {
   return (
     <div className="header__logo">
       <Link className="header__logo-link" to="/">
-        {!loading && logo ? (
+        {logo ? (
           <img
             className="header__logo-img"
             src={logo.src}
@@ -34,13 +34,13 @@ const Logo = ({ general: { logo, loading }, getLogo }) => {
 
 // Set component property types.
 Logo.propTypes = {
-  general: PropTypes.object.isRequired,
+  logo: PropTypes.object,
   getLogo: PropTypes.func.isRequired
 };
 
 // Map application state to component state.
 const mapStateToProps = state => ({
-  general: state.general
+  logo: state.general.logo
 });
 
 // Export component.

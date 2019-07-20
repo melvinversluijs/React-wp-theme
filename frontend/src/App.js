@@ -9,15 +9,16 @@ import store from "./store";
 import setBaseUrl from "./utils/setBaseUrl";
 
 // Bring in components.
+import Loader from "./components/layout/Loader";
 import Header from "./components/layout/Header";
 import Home from "./components/layout/Home";
 import Footer from "./components/layout/Footer";
-
-// Bring in styling.
-import "./scss/App.scss";
 import PostsOverview from "./components/posts/PostsOverview";
 import Post from "./components/post/Post";
 import Page from "./components/page/Page";
+
+// Bring in styling.
+import "./scss/App.scss";
 
 /**
  * App component.
@@ -29,6 +30,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <Loader />
         <Header />
         <main className="content">
           <Route exact path="/" component={Home} />

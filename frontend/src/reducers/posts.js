@@ -1,11 +1,10 @@
-import { GET_POSTS, POSTS_ERROR, GET_POST } from "../actions/types";
+import { GET_POSTS_SUCCESS, GET_POST_SUCCESS } from "../actions/types";
 
 // Set initial state.
 const initialState = {
   posts: [],
   currentPage: 1,
-  post: null,
-  loading: true
+  post: null
 };
 
 // Export reducer function.
@@ -15,23 +14,16 @@ export default function(state = initialState, action) {
 
   // Set new state.
   switch (type) {
-    case GET_POSTS:
+    case GET_POSTS_SUCCESS:
       return {
         ...state,
         posts: [...state.posts, ...payload],
-        currentPage: state.currentPage + 1,
-        loading: false
+        currentPage: state.currentPage + 1
       };
-    case GET_POST:
+    case GET_POST_SUCCESS:
       return {
         ...state,
-        post: payload,
-        loading: false
-      };
-    case POSTS_ERROR:
-      return {
-        ...state,
-        loading: false
+        post: payload
       };
     default:
       return state;

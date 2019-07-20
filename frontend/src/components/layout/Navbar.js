@@ -9,25 +9,22 @@ import MenuItem from "./MenuItem";
  *
  * @param {Object} props
  */
-const Navbar = ({ navigation: { main_menu, loading }, getMainMenu }) => {
+const Navbar = ({ navigation: { main_menu }, getMainMenu }) => {
   // Trigger getMainMenu after loading component.
   useEffect(() => {
     getMainMenu();
   }, [getMainMenu]);
 
-  // For now just show loading when it is loading.
-  if (loading || !main_menu) {
-    return <div>loading</div>;
-  }
-
   return (
-    <nav className="header__nav">
-      <ul className="header__nav-list header__nav-list--root">
-        {Object.keys(main_menu).map(key => (
-          <MenuItem key={main_menu[key].ID} menuItem={main_menu[key]} />
-        ))}
-      </ul>
-    </nav>
+    main_menu && (
+      <nav className="header__nav">
+        <ul className="header__nav-list header__nav-list--root">
+          {Object.keys(main_menu).map(key => (
+            <MenuItem key={main_menu[key].ID} menuItem={main_menu[key]} />
+          ))}
+        </ul>
+      </nav>
+    )
   );
 };
 

@@ -2,14 +2,12 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getPost } from "../../actions/posts";
-import posts from "../../reducers/posts";
 
 /**
  * Post component.
  */
 const Post = ({
   post,
-  loading,
   match: {
     params: { id }
   },
@@ -23,31 +21,29 @@ const Post = ({
     }
   }, [getPost]);
 
-  return loading || !post || !post.hasOwnProperty("id") ? (
-    <span>Loading</span>
-  ) : (
-    <div className="post">
-      <h1 className="post__title">{post.title.rendered}</h1>
-      <p
-        className="post__content"
-        dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-      />
-    </div>
+  return (
+    post && (
+      <div className="post">
+        <h1 className="post__title">{post.title.rendered}</h1>
+        <p
+          className="post__content"
+          dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+        />
+      </div>
+    )
   );
 };
 
 // Set property types.
 Post.propTypes = {
   post: PropTypes.object,
-  loading: PropTypes.bool.isRequired,
   match: PropTypes.object.isRequired,
   getPost: PropTypes.func.isRequired
 };
 
 // Map application state to local properties.
 const mapStateToProps = state => ({
-  post: state.posts.post,
-  loading: state.posts.loading
+  post: state.posts.post
 });
 
 // Export component.

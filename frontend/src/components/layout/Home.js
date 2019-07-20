@@ -9,16 +9,11 @@ import PostsOverview from "../posts/PostsOverview";
  *
  * @param {Object} param0
  */
-const Home = ({ pages: { home, loading }, getHomePage }) => {
+const Home = ({ home, getHomePage }) => {
   // Call get home page when component loads.
   useEffect(() => {
     getHomePage();
   }, [getHomePage]);
-
-  // Return loading text while loading, for now.
-  if (loading) {
-    return <div>loading</div>;
-  }
 
   // If no homepage was found, show blog overview.
   if (!home) {
@@ -35,13 +30,13 @@ const Home = ({ pages: { home, loading }, getHomePage }) => {
 
 // Set component property types.
 Home.propTypes = {
-  pages: PropTypes.object.isRequired,
+  home: PropTypes.object,
   getHomePage: PropTypes.func.isRequired
 };
 
 // Map application state to component state.
 const mapStateToProps = state => ({
-  pages: state.pages
+  home: state.pages.home
 });
 
 // Export component.

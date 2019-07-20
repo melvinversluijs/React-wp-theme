@@ -1,10 +1,9 @@
-import { GET_HOME_PAGE, GET_PAGE, PAGES_ERROR } from "../actions/types";
+import { GET_HOME_PAGE_SUCCESS, GET_PAGE_SUCCESS } from "../actions/types";
 
 // Set initial state.
 const initialState = {
   home: null,
-  page: null,
-  loading: true
+  page: null
 };
 
 // Export reducer function.
@@ -14,23 +13,15 @@ export default function(state = initialState, action) {
 
   // Set state based on type.
   switch (type) {
-    case GET_HOME_PAGE:
+    case GET_HOME_PAGE_SUCCESS:
       return {
         ...state,
-        home: payload,
-        loading: false
+        home: payload
       };
-    case GET_PAGE: {
+    case GET_PAGE_SUCCESS:
       return {
         ...state,
-        page: payload,
-        loading: false
-      };
-    }
-    case PAGES_ERROR:
-      return {
-        ...state,
-        loading: false
+        page: payload
       };
     default:
       return state;
