@@ -6,20 +6,14 @@ import { getPost } from "../../actions/posts";
 /**
  * Post component.
  */
-const Post = ({
-  post,
-  match: {
-    params: { id }
-  },
-  getPost
-}) => {
+const Post = ({ post, match, getPost }) => {
   // Get post when loading the page.
   useEffect(() => {
     // Only get new object if we not have one yet.
-    if (!post || !post.id !== id) {
-      getPost(id);
+    if (!post || !post.id !== match.params.id) {
+      getPost(match.params.id);
     }
-  }, [getPost]);
+  }, [getPost, match.params.id]);
 
   return (
     post && (

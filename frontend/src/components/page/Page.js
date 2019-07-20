@@ -8,8 +8,10 @@ import { getPage } from "../../actions/pages";
  */
 const Page = ({ page, getPage, match }) => {
   useEffect(() => {
-    getPage(match.params.id);
-  }, [getPage]);
+    if (!page || !page.id !== match.params.id) {
+      getPage(match.params.id);
+    }
+  }, [getPage, match.params.id]);
 
   // Else return the html.
   return (
