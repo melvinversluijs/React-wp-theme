@@ -42,13 +42,15 @@ class Pages extends AbstractApi
      */
     public function getHomePage(): \WP_REST_Response
     {
-        $home = null;
-        // Get the ID, and from that the page object.
-        if ($homeId = \get_option('page_on_front')) {
-            $home = \get_page($homeId);
+        $result = [];
+
+        // Check if there is a page for home.
+        if (\get_option('show_on_front') === 'page') {
+            $result['home'] = (int) \get_option('page_on_front') ?: null;
+            $result['blog'] = (int) \get_option('page_for_posts') ?: null;
         }
 
         // Return as json.
-        return new \WP_REST_Response($home);
+        return new \WP_REST_Response($result);
     }
 }

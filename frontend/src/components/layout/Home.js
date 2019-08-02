@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getHomePage } from "../../actions/pages";
 import PostsOverview from "../posts/PostsOverview";
+import Page from "../page/Page";
 
 /**
  * Home component.
@@ -12,25 +13,22 @@ import PostsOverview from "../posts/PostsOverview";
 const Home = ({ home, getHomePage }) => {
   // Call get home page when component loads.
   useEffect(() => {
-    getHomePage();
-  }, [getHomePage]);
+    if (!home) {
+      getHomePage();
+    }
+  }, [getHomePage, home]);
 
   // If no homepage was found, show blog overview.
   if (!home) {
     return <PostsOverview />;
   }
 
-  return (
-    <div>
-      <h1>{home.post_title}</h1>
-      <p>{home.post_content}</p>
-    </div>
-  );
+  return <Page pageId={home} />;
 };
 
 // Set component property types.
 Home.propTypes = {
-  home: PropTypes.object,
+  home: PropTypes.number,
   getHomePage: PropTypes.func.isRequired
 };
 

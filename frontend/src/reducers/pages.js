@@ -3,6 +3,7 @@ import { GET_HOME_PAGE_SUCCESS, GET_PAGE_SUCCESS } from "../actions/types";
 // Set initial state.
 const initialState = {
   home: null,
+  blog: null,
   page: null
 };
 
@@ -16,7 +17,8 @@ export default function(state = initialState, action) {
     case GET_HOME_PAGE_SUCCESS:
       return {
         ...state,
-        home: payload
+        home: payload.home,
+        blog: payload.blog
       };
     case GET_PAGE_SUCCESS:
       return {

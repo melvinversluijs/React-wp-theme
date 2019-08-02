@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
 // Bring in Redux.
@@ -7,6 +7,9 @@ import store from "./store";
 
 // Bring in utils.
 import setBaseUrl from "./utils/setBaseUrl";
+
+// Bring in actions.
+import { getHomePage } from "./actions/pages";
 
 // Bring in components.
 import Loader from "./components/layout/Loader";
