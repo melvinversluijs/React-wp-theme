@@ -1,11 +1,20 @@
 .header {
   background-color: $color-primary;
-  display: flex;
-  align-items: center;
-  padding: 1rem 8rem;
+
+  // Header container.
+  &__container {
+    max-width: 60rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    padding: 1rem;
+  }
 
   // Header logo.
   &__logo {
+    flex: 0 0 auto;
     margin-right: auto;
   }
 
@@ -24,14 +33,21 @@
   }
 
   // Header navigation.
+
+  &__nav {
+    flex-basis: end;
+  }
+
   &__nav-list {
     list-style: none;
 
     &--root {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
 
       .header__nav-item:not(:last-child) {
-        margin-right: 0.8rem;
+        margin-right: 0.5rem;
       }
     }
 

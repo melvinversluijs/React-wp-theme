@@ -10,8 +10,10 @@ import Navbar from "./Navbar";
 const Header = () => {
   return (
     <header className="header">
-      <Logo />
-      <Navbar />
+      <div className="header__container">
+        <Logo />
+        <Navbar />
+      </div>
     </header>
   );
 };
