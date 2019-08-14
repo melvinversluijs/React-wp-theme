@@ -26,7 +26,7 @@
     <?php wp_head();?>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root" class="root"></div>
     <?php wp_footer();?>
   </body>
 </html>
