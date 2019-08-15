@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 0;
 
   &__container {
     display: grid;
@@ -12,13 +12,51 @@
     margin-bottom: 1.5rem;
   }
 
+  &__post-card {
+    border-radius: 3px;
+    overflow: hidden;
+    transition: all 0.2s;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      font-family: $font-default;
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    }
+
+    &:active {
+      transform: translateY(-2px);
+    }
+  }
+
   &__post-image {
     width: 100%;
     height: 14rem;
+    object-fit: cover;
   }
 
-  &__post-link {
-    align-self: end;
+  &__post-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__post-category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: $color-secondary;
+    padding: 0.5rem 0;
+  }
+
+  &__post-name {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: $color-primary;
+    padding-bottom: 1rem;
   }
 
   &__load-more {

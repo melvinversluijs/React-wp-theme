@@ -26,7 +26,7 @@ const PostItem = ({ post }) => {
   }
 
   return (
-    <div className="posts-overview__card">
+    <Link to={`/post/${post.id}`} className="posts-overview__post-card">
       {image && image[0] && (
         <img
           src={image[0].source_url}
@@ -35,14 +35,13 @@ const PostItem = ({ post }) => {
         />
       )}
 
-      {termsList.length > 0 && (
-        <span className="posts-overview__post-category">{termsList}</span>
-      )}
-      <h3 className="posts-overview__post-name">{post.title.rendered}</h3>
-      <Link to={`/post/${post.id}`} className="posts-overview__post-link">
-        Read more
-      </Link>
-    </div>
+      <div className="posts-overview__post-content">
+        {termsList.length > 0 && (
+          <span className="posts-overview__post-category">{termsList}</span>
+        )}
+        <h3 className="posts-overview__post-name">{post.title.rendered}</h3>
+      </div>
+    </Link>
   );
 };
 
