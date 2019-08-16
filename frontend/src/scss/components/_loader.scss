@@ -12,12 +12,12 @@
   align-items: center;
 
   &__spinner {
-    border: 1rem solid $color-grey-light;
-    border-top: 1rem solid $color-secondary;
+    border: 0.5rem solid $color-grey-light;
+    border-top: 0.5rem solid $color-secondary;
     border-radius: 50%;
     width: 7.5rem;
     height: 7.5rem;
-    animation: spin 1.5s linear infinite;
+    animation: spin 1.5s ease-in-out infinite;
   }
 }
 
