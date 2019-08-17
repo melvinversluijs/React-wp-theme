@@ -83,7 +83,7 @@
     &:hover,
     &:focus {
       outline: none;
-      background-color: darken($color-secondary, 10);
+      background-color: $color-primary;
     }
 
     &:active {
