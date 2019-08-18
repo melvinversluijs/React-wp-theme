@@ -1,4 +1,14 @@
 .page {
+  margin: 1.5rem 0;
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $color-primary;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
   &__content {
     @include clearfix;
   }
