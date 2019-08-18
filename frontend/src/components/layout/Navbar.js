@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getMainMenu } from "../../actions/navigation";
@@ -15,15 +15,37 @@ const Navbar = ({ navigation: { main_menu }, getMainMenu }) => {
     getMainMenu();
   }, [getMainMenu]);
 
+  // By default, menu is closed.
+  const [isMobileMenuActive, setIsMobileMenuActive] = useState(false);
+
+  /**
+   * Toggle mobile menu.
+   */
+  const toggleMobileMenu = () => {
+    setIsMobileMenuActive(!isMobileMenuActive);
+  };
+
   return (
     main_menu && (
-      <nav className="header__nav">
-        <ul className="header__nav-list header__nav-list--root">
-          {Object.keys(main_menu).map(key => (
-            <MenuItem key={main_menu[key].ID} menuItem={main_menu[key]} />
-          ))}
-        </ul>
-      </nav>
+      <Fragment>
+        <nav
+          className={
+            "header__nav" + (isMobileMenuActive ? " header__nav--active" : "")
+          }
+        >
+          <ul className="header__nav-list header__nav-list--root">
+            {Object.keys(main_menu).map(key => (
+              <MenuItem key={main_menu[key].ID} menuItem={main_menu[key]} />
+            ))}
+          </ul>
+        </nav>
+        <button
+          className="header__nav-mobile-toggle"
+          onClick={toggleMobileMenu}
+        >
+          <i className="header__nav-mobile-toggle-icon" />
+        </button>
+      </Fragment>
     )
   );
 };

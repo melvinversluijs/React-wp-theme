@@ -71,6 +71,11 @@
         border-bottom: 1px solid $color-white;
       }
     }
+
+    // Hide by default on landscape and smaller.
+    @include responsive-tablet-landscape {
+      display: none;
+    }
   }
 
   // Default nav link styling.
@@ -167,5 +172,70 @@
     > &__nav-item--with-children
     > &__nav-link:visited::after {
     transform: rotate(45deg);
+  }
+
+  // Mobile toggle button.
+  &__nav-mobile-toggle {
+    display: none;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    height: 2rem;
+    width: 1.5rem;
+    cursor: pointer;
+
+    @include responsive-tablet-landscape {
+      display: block;
+    }
+  }
+
+  &__nav-mobile-toggle-icon {
+    position: relative;
+    vertical-align: middle;
+
+    &,
+    &::before,
+    &::after {
+      width: 1.5rem;
+      height: 1px;
+      background-color: $color-white;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.5rem;
+    }
+
+    &::after {
+      top: 0.5rem;
+    }
+  }
+
+  // When mobile menu is active.
+  &__nav--active
+    + .header__nav-mobile-toggle
+    > .header__nav-mobile-toggle-icon {
+    background-color: transparent;
+
+    &::before,
+    &::after {
+      top: 0;
+    }
+
+    &::before {
+      transform: rotate(135deg);
+    }
+
+    &::after {
+      transform: rotate(-135deg);
+    }
   }
 }
