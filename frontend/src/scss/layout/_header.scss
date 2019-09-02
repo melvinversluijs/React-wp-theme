@@ -10,6 +10,11 @@
     flex-wrap: nowrap;
     margin: 0 auto;
     padding: 1rem;
+
+    @include responsive-tablet-landscape {
+      flex-direction: column;
+      position: relative;
+    }
   }
 
   // Header logo.
@@ -121,6 +126,10 @@
         top: 0;
         left: 100%;
       }
+
+      @include responsive-tablet-landscape {
+        display: none;
+      }
     }
   }
 
@@ -133,7 +142,7 @@
       position: relative;
 
       &::after {
-        content: "";
+        content: '';
         display: inline-block;
         position: relative;
         width: 6px;
@@ -177,6 +186,9 @@
   // Mobile toggle button.
   &__nav-mobile-toggle {
     display: none;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
     border: none;
     outline: none;
     background-color: transparent;
@@ -204,7 +216,7 @@
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       transition: all 0.2s;
@@ -220,22 +232,35 @@
   }
 
   // When mobile menu is active.
-  &__nav--active
-    + .header__nav-mobile-toggle
-    > .header__nav-mobile-toggle-icon {
-    background-color: transparent;
+  @include responsive-tablet-landscape {
+    &__nav--active {
+      width: 100%;
 
-    &::before,
-    &::after {
-      top: 0;
-    }
+      // Menu.
+      .header__nav-list--root {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        background-color: $color-primary;
+      }
 
-    &::before {
-      transform: rotate(135deg);
-    }
+      // Toggle button.
+      & + .header__nav-mobile-toggle > .header__nav-mobile-toggle-icon {
+        background-color: transparent;
 
-    &::after {
-      transform: rotate(-135deg);
+        &::before,
+        &::after {
+          top: 0;
+        }
+
+        &::before {
+          transform: rotate(135deg);
+        }
+
+        &::after {
+          transform: rotate(-135deg);
+        }
+      }
     }
   }
 }
