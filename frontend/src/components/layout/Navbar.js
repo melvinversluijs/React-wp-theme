@@ -1,8 +1,8 @@
-import React, { useEffect, useState, Fragment } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getMainMenu } from "../../actions/navigation";
-import MenuItem from "./MenuItem";
+import React, { useEffect, useState, Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getMainMenu } from '../../actions/navigation';
+import MenuItem from './MenuItem';
 
 /**
  * Navbar component.
@@ -30,7 +30,7 @@ const Navbar = ({ navigation: { main_menu }, getMainMenu }) => {
       <Fragment>
         <nav
           className={
-            "header__nav" + (isMobileMenuActive ? " header__nav--active" : "")
+            'header__nav' + (isMobileMenuActive ? ' header__nav--active' : '')
           }
         >
           <ul className="header__nav-list header__nav-list--root">
@@ -53,16 +53,16 @@ const Navbar = ({ navigation: { main_menu }, getMainMenu }) => {
 // Set property types.
 Navbar.propTypes = {
   navigation: PropTypes.object.isRequired,
-  getMainMenu: PropTypes.func.isRequired
+  getMainMenu: PropTypes.func.isRequired,
 };
 
 // Map application state to component state.
 const mapStateToProps = state => ({
-  navigation: state.navigation
+  navigation: state.navigation,
 });
 
 // Export component.
 export default connect(
   mapStateToProps,
-  { getMainMenu }
+  { getMainMenu },
 )(Navbar);

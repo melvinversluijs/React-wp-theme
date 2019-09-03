@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 /**
  * MenuItem component.
@@ -9,14 +9,24 @@ import PropTypes from "prop-types";
  */
 const MenuItem = ({
   menuItem: { object_id, title, url, object, children },
-  level
+  level,
 }) => {
+  // Keep isActive in state.
+  const [isActive, setIsActive] = useState(false);
+
+  /**
+   * Toggle the isActive state for menu items with children, used on mobile view.
+   */
+  const toggleIsActive = () => {
+    setIsActive(!isActive);
+  };
+
   // If no level was given, use 0.
   const menuLevel = level ? level + 1 : 1;
 
   // Build parent item html.
   const parentHtml =
-    object === "custom" ? (
+    object === 'custom' ? (
       <a href={url} className="header__nav-link">
         {title}
       </a>
@@ -37,8 +47,16 @@ const MenuItem = ({
 
   // Else go through children recursively.
   return (
-    <li className="header__nav-item header__nav-item--with-children">
+    <li
+      className={
+        'header__nav-item header__nav-item--with-children' +
+        (isActive ? ' header__nav-item--active' : '')
+      }
+    >
       {parentHtml}
+      <button className="header__nav-link-toggle" onClick={toggleIsActive}>
+        <i />
+      </button>
       <ul className={`header__nav-list header__nav-list--level-${menuLevel}`}>
         {Object.keys(children).map(key => (
           <MenuItem
@@ -55,7 +73,7 @@ const MenuItem = ({
 // Set component property types.
 MenuItem.propTypes = {
   menuItem: PropTypes.object.isRequired,
-  level: PropTypes.number
+  level: PropTypes.number,
 };
 
 // Export component.
