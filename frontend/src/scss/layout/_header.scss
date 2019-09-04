@@ -74,12 +74,24 @@
 
       .header__nav-item:not(:last-child) {
         border-bottom: 1px solid $color-white;
+
+        @include responsive-tablet-landscape {
+          border-bottom: none;
+        }
       }
     }
 
     // Hide by default on landscape and smaller.
     @include responsive-tablet-landscape {
       display: none;
+    }
+  }
+
+  &__nav-item {
+    &:hover > .header__nav-link,
+    &:hover > .header__nav-link-toggle {
+      outline: none;
+      color: $color-tertiary;
     }
   }
 
@@ -91,17 +103,6 @@
     text-decoration: none;
     color: $color-white;
     transition: all 0.2s;
-  }
-
-  &__nav-link:hover,
-  &__nav-link:focus {
-    outline: none;
-    color: $color-tertiary;
-
-    // Color toggle button when hovering link.
-    & ~ .header__nav-link-toggle {
-      color: $color-tertiary;
-    }
   }
 
   // Hover for nav item with children.
@@ -136,6 +137,17 @@
         display: none;
       }
     }
+
+    @include responsive-tablet-landscape {
+      &.header__nav-item--active > .header__nav-list {
+        display: block;
+        opacity: 100;
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+    }
   }
 
   // Icon for nav items with children.
@@ -145,6 +157,7 @@
     color: $color-white;
     cursor: pointer;
     margin-left: 0.5rem;
+    outline: none;
 
     i {
       content: '';
@@ -157,6 +170,11 @@
       border-right-style: solid;
       color: currentColor;
       transform: rotate(135deg) translateY(5px);
+    }
+
+    @include responsive-tablet-landscape {
+      padding-left: 1rem;
+      border-left: solid 1px $color-white;
     }
   }
 
