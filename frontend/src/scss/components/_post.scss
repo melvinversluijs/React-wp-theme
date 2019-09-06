@@ -1,5 +1,39 @@
 .post {
+  margin: 1.5rem 0;
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $color-primary;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__author {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__author-image {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    display: block;
+    margin-right: 2rem;
+  }
+
+  &__author-name {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+  }
+
   &__content {
     @include clearfix;
+
+    p {
+      margin-bottom: 1rem;
+    }
   }
 }

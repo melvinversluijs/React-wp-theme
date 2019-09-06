@@ -21,6 +21,7 @@ class General extends AbstractApi
         \add_action('after_setup_theme', [$this, 'addCustomLogo']);
         \add_action('after_setup_theme', [$this, 'addFeaturedImageSupport']);
         \add_action('rest_api_init', [$this, 'registerGetSiteLogo']);
+        \remove_action('template_redirect', 'redirect_canonical');
     }
 
     /**
