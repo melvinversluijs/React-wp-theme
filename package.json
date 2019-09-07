@@ -2,14 +2,14 @@
   "name": "react-wp-theme",
   "version": "1.0.0",
   "description": "A simple wordpress theme to test React in Wp development.",
-  "main": "main.js",
+  "main": "main.jsx",
   "repository": "git@github.com:melvinversluijs/React-wp-theme.git",
   "author": "Melvin Versluijs <https://github.com/melvinversluijs>",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode=production",
     "dev": "webpack --watch --mode=development",
-    "test": "eslint --ext jsx,js ./frontend/src"
+    "test:eslint": "eslint --ext jsx,js ./frontend/src"
   },
   "dependencies": {
     "axios": "^0.19.0",
