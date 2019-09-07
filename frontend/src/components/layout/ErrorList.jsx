@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 /**
  * ErrorList component.
@@ -28,7 +28,7 @@ const ErrorList = ({ errors }) => {
           }
 
           // Use an index to get a unique key.
-          idx++;
+          idx += 1;
           return (
             <li className="errors__list-item" key={idx}>
               {error.message}
@@ -42,16 +42,20 @@ const ErrorList = ({ errors }) => {
 
 // Set component property types.
 ErrorList.propTypes = {
-  errors: PropTypes.object
+  errors: PropTypes.object,
+};
+
+ErrorList.defaultProps = {
+  errors: {},
 };
 
 // Map application state to component properties.
 const mapStateToProps = state => ({
-  errors: state.errors
+  errors: state.errors,
 });
 
 // Export component.
 export default connect(
   mapStateToProps,
-  {}
+  {},
 )(ErrorList);

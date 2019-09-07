@@ -1,11 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 
 // Set baseUrl for axios.
 const setBaseUrl = () => {
   // Check if the base url is present.
-  const baseApiUrl = WP_React.hasOwnProperty("api_url")
-    ? WP_React.api_url
-    : false;
+  const baseApiUrl =
+    typeof WP_React.api_url !== 'undefined' ? WP_React.api_url : false;
 
   if (baseApiUrl) {
     // If so, set it.

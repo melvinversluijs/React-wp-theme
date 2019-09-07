@@ -1,7 +1,8 @@
+/* eslint no-underscore-dangle: 0, react/no-danger: 0 */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getPost } from '../../actions/posts';
+import { getPostAction } from '../../actions/posts';
 
 /**
  * Post component.
@@ -10,10 +11,10 @@ const Post = ({ post, match, getPost }) => {
   // Get post when loading the page.
   useEffect(() => {
     // Only get new object if we not have one yet.
-    if (!post || !post.id !== match.params.id) {
+    if (!post || post.id !== Number(match.params.id)) {
       getPost(match.params.id);
     }
-  }, [getPost, match.params.id]);
+  }, [getPost, post, match.params.id]);
 
   if (!post) {
     return null;
@@ -43,7 +44,7 @@ const Post = ({ post, match, getPost }) => {
             alt={authorName}
             className="post__author-image"
           />
-          <span className="post__author-name">by {authorName}</span>
+          <span className="post__author-name">{`by ${authorName}`}</span>
         </div>
       )}
       {content && (
@@ -63,6 +64,10 @@ Post.propTypes = {
   getPost: PropTypes.func.isRequired,
 };
 
+Post.defaultProps = {
+  post: null,
+};
+
 // Map application state to local properties.
 const mapStateToProps = state => ({
   post: state.posts.post,
@@ -71,5 +76,5 @@ const mapStateToProps = state => ({
 // Export component.
 export default connect(
   mapStateToProps,
-  { getPost },
+  { getPost: getPostAction },
 )(Post);

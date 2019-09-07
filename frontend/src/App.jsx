@@ -1,25 +1,25 @@
-import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 // Bring in Redux.
-import { Provider } from "react-redux";
-import store from "./store";
+import { Provider } from 'react-redux';
+import store from './store';
 
 // Bring in utils.
-import setBaseUrl from "./utils/setBaseUrl";
+import setBaseUrl from './utils/setBaseUrl';
 
 // Bring in components.
-import Loader from "./components/layout/Loader";
-import ErrorList from "./components/layout/ErrorList";
-import Header from "./components/layout/Header";
-import Home from "./components/layout/Home";
-import Footer from "./components/layout/Footer";
-import PostsOverview from "./components/posts/PostsOverview";
-import Post from "./components/post/Post";
-import Page from "./components/page/Page";
+import Loader from './components/layout/Loader';
+import ErrorList from './components/layout/ErrorList';
+import Header from './components/layout/Header';
+import Home from './components/layout/Home';
+import Footer from './components/layout/Footer';
+import PostsOverview from './components/posts/PostsOverview';
+import Post from './components/post/Post';
+import Page from './components/page/Page';
 
 // Bring in styling.
-import "./scss/App.scss";
+import './scss/App.scss';
 
 /**
  * App component.

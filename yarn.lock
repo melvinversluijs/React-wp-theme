@@ -1587,7 +1587,7 @@ concat-stream@^1.5.0:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
-confusing-browser-globals@^1.0.7:
+confusing-browser-globals@^1.0.7, confusing-browser-globals@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/confusing-browser-globals/-/confusing-browser-globals-1.0.8.tgz#93ffec1f82a6e2bf2bc36769cc3a92fa20e502f3"
   integrity sha512-lI7asCibVJ6Qd3FGU7mu4sfG4try4LX3+GVS+Gv8UlrEf2AeW57piecapnog2UHZSbcX/P/1UDWVaTsblowlZg==
@@ -2083,6 +2083,13 @@ eslint-config-prettier@^6.1.0:
   dependencies:
     get-stdin "^6.0.0"
 
+eslint-config-react-app@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-5.0.1.tgz#5f3d666ba3ee3cb384eb943e260e868f6c72251b"
+  integrity sha512-GYXP3F/0PSHlYfGHhahqnJze8rYKxzXgrzXVqRRd4rDO40ga4NA3aHM7/HKbwceDN0/C1Ij3BoAWFawJgRbXEw==
+  dependencies:
+    confusing-browser-globals "^1.0.8"
+
 eslint-import-resolver-node@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.2.tgz#58f15fb839b8d0576ca980413476aab2472db66a"
@@ -2098,6 +2105,13 @@ eslint-module-utils@^2.4.0:
   dependencies:
     debug "^2.6.8"
     pkg-dir "^2.0.0"
+
+eslint-plugin-flowtype@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-4.3.0.tgz#06d0837ac341caf369e7e6dbb112dd7fd21acf17"
+  integrity sha512-elvqoadMHnYqSYN1YXn02DR7SFW8Kc2CLe8na3m2GdQPQhIY+BgCd2quVJ1AbW3aO0zcyE9loVJ7Szy8A/xlMA==
+  dependencies:
+    lodash "^4.17.15"
 
 eslint-plugin-import@^2.18.2:
   version "2.18.2"
@@ -2137,6 +2151,11 @@ eslint-plugin-prettier@^3.1.0:
   integrity sha512-XWX2yVuwVNLOUhQijAkXz+rMPPoCr7WFiAl8ig6I7Xn+pPVhDhzg4DxHpmbeb0iqjO9UronEA3Tb09ChnFVHHA==
   dependencies:
     prettier-linter-helpers "^1.0.0"
+
+eslint-plugin-react-hooks@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-2.0.1.tgz#e898ec26a0a335af6f7b0ad1f0bedda7143ed756"
+  integrity sha512-xir+3KHKo86AasxlCV8AHRtIZPHljqCRRUYgASkbatmt0fad4+5GgC7zkT7o/06hdKM6MIwp8giHVXqBPaarHQ==
 
 eslint-plugin-react@^7.14.3:
   version "7.14.3"
@@ -3482,7 +3501,7 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
-lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@~4.17.10:
+lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@~4.17.10:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==

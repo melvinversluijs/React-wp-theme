@@ -1,21 +1,21 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   GET_POSTS_REQUEST,
   GET_POSTS_SUCCESS,
   GET_POSTS_FAILURE,
   GET_POST_REQUEST,
   GET_POST_SUCCESS,
-  GET_POST_FAILURE
-} from "./types";
+  GET_POST_FAILURE,
+} from './types';
 
 /**
  * Get posts.
  */
-export const getPosts = (page = 1) => async dispatch => {
+export const getPostsAction = (page = 1) => async dispatch => {
   try {
     // Set loader.
     dispatch({
-      type: GET_POSTS_REQUEST
+      type: GET_POSTS_REQUEST,
     });
 
     // Get posts.
@@ -24,13 +24,13 @@ export const getPosts = (page = 1) => async dispatch => {
     // Dispatch get_posts.
     dispatch({
       type: GET_POSTS_SUCCESS,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     // Properly handle errors.
     dispatch({
       type: GET_POSTS_FAILURE,
-      payload: error
+      payload: error,
     });
   }
 };
@@ -40,11 +40,11 @@ export const getPosts = (page = 1) => async dispatch => {
  *
  * @param {int|string} pageId
  */
-export const getPost = pageId => async dispatch => {
+export const getPostAction = pageId => async dispatch => {
   try {
     // Set loader.
     dispatch({
-      type: GET_POST_REQUEST
+      type: GET_POST_REQUEST,
     });
 
     // Get post by id.
@@ -53,13 +53,13 @@ export const getPost = pageId => async dispatch => {
     // Set resulting post as payload for dispatch.
     dispatch({
       type: GET_POST_SUCCESS,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     // Properly handle errors.
     dispatch({
       type: GET_POST_FAILURE,
-      payload: error
+      payload: error,
     });
   }
 };

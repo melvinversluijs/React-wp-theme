@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getHomePage } from "../../actions/pages";
-import PostsOverview from "../posts/PostsOverview";
-import Page from "../page/Page";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getHomePageAction } from '../../actions/pages';
+import PostsOverview from '../posts/PostsOverview';
+import Page from '../page/Page';
 
 /**
  * Home component.
@@ -29,16 +29,20 @@ const Home = ({ home, getHomePage }) => {
 // Set component property types.
 Home.propTypes = {
   home: PropTypes.number,
-  getHomePage: PropTypes.func.isRequired
+  getHomePage: PropTypes.func.isRequired,
+};
+
+Home.defaultProps = {
+  home: null,
 };
 
 // Map application state to component state.
 const mapStateToProps = state => ({
-  home: state.pages.home
+  home: state.pages.home,
 });
 
 // Export component.
 export default connect(
   mapStateToProps,
-  { getHomePage }
+  { getHomePage: getHomePageAction },
 )(Home);

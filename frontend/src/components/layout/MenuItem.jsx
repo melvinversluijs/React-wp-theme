@@ -1,3 +1,4 @@
+/* eslint camelcase: 0 */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -21,7 +22,7 @@ const MenuItem = ({
     setIsActive(!isActive);
   };
 
-  // If no level was given, use 0.
+  // If no level was given, use 1.
   const menuLevel = level ? level + 1 : 1;
 
   // Build parent item html.
@@ -48,13 +49,15 @@ const MenuItem = ({
   // Else go through children recursively.
   return (
     <li
-      className={
-        'header__nav-item header__nav-item--with-children' +
-        (isActive ? ' header__nav-item--active' : '')
-      }
+      className={`header__nav-item header__nav-item--with-children ${isActive &&
+        'header__nav-item--active'}`}
     >
       {parentHtml}
-      <button className="header__nav-link-toggle" onClick={toggleIsActive}>
+      <button
+        className="header__nav-link-toggle"
+        onClick={toggleIsActive}
+        type="button"
+      >
         <i />
       </button>
       <ul className={`header__nav-list header__nav-list--level-${menuLevel}`}>
@@ -74,6 +77,10 @@ const MenuItem = ({
 MenuItem.propTypes = {
   menuItem: PropTypes.object.isRequired,
   level: PropTypes.number,
+};
+
+MenuItem.defaultProps = {
+  level: null,
 };
 
 // Export component.

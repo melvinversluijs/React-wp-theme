@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getPosts } from "../../actions/posts";
-import PostItem from "./PostItem";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getPostsAction } from '../../actions/posts';
+import PostItem from './PostItem';
 
 /**
  * PostsOverview component.
@@ -13,7 +13,7 @@ const PostsOverview = ({ posts: { posts, currentPage }, getPosts }) => {
     if (posts.length === 0) {
       getPosts(currentPage);
     }
-  }, [getPosts]);
+  }, [getPosts, currentPage, posts.length]);
 
   /**
    * Function to load more items.
@@ -33,6 +33,7 @@ const PostsOverview = ({ posts: { posts, currentPage }, getPosts }) => {
         <button
           className="posts-overview__load-more"
           onClick={() => handleLoadMore()}
+          type="button"
         >
           Load more posts
         </button>
@@ -44,16 +45,16 @@ const PostsOverview = ({ posts: { posts, currentPage }, getPosts }) => {
 // Set component property types.
 PostsOverview.propTypes = {
   posts: PropTypes.object.isRequired,
-  getPosts: PropTypes.func.isRequired
+  getPosts: PropTypes.func.isRequired,
 };
 
 // Map application state to component props.
 const mapStateToProps = state => ({
-  posts: state.posts
+  posts: state.posts,
 });
 
 // Export component.
 export default connect(
   mapStateToProps,
-  { getPosts }
+  { getPosts: getPostsAction },
 )(PostsOverview);

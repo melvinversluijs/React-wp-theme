@@ -1,6 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+/* eslint no-underscore-dangle: 0 */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 /**
  * PostItem component.
@@ -9,15 +10,15 @@ import { Link } from "react-router-dom";
  */
 const PostItem = ({ post }) => {
   // Get featured image from post.
-  const image = post._embedded["wp:featuredmedia"];
-  const terms = post._embedded["wp:term"];
-  let termsList = "";
+  const image = post._embedded['wp:featuredmedia'];
+  const terms = post._embedded['wp:term'];
+  let termsList = '';
 
   if (terms && terms.length > 0) {
     terms.forEach(term => {
       term.forEach(item => {
-        if (item.taxonomy === "category") {
-          if (termsList.length > 0) termsList += ", ";
+        if (item.taxonomy === 'category') {
+          if (termsList.length > 0) termsList += ', ';
 
           termsList += item.name;
         }
@@ -47,7 +48,7 @@ const PostItem = ({ post }) => {
 
 // Set postitem property types.
 PostItem.propTypes = {
-  post: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired,
 };
 
 // Export component.

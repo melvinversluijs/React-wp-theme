@@ -1,7 +1,8 @@
-import React, { useEffect, useState, Fragment } from 'react';
+/* eslint camelcase: 0 */
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getMainMenu } from '../../actions/navigation';
+import { getMainMenuAction } from '../../actions/navigation';
 import MenuItem from './MenuItem';
 
 /**
@@ -27,11 +28,10 @@ const Navbar = ({ navigation: { main_menu }, getMainMenu }) => {
 
   return (
     main_menu && (
-      <Fragment>
+      <>
         <nav
-          className={
-            'header__nav' + (isMobileMenuActive ? ' header__nav--active' : '')
-          }
+          className={`header__nav ${isMobileMenuActive &&
+            'header__nav--active'}`}
         >
           <ul className="header__nav-list header__nav-list--root">
             {Object.keys(main_menu).map(key => (
@@ -42,10 +42,11 @@ const Navbar = ({ navigation: { main_menu }, getMainMenu }) => {
         <button
           className="header__nav-mobile-toggle"
           onClick={toggleMobileMenu}
+          type="button"
         >
           <i className="header__nav-mobile-toggle-icon" />
         </button>
-      </Fragment>
+      </>
     )
   );
 };
@@ -64,5 +65,5 @@ const mapStateToProps = state => ({
 // Export component.
 export default connect(
   mapStateToProps,
-  { getMainMenu },
+  { getMainMenu: getMainMenuAction },
 )(Navbar);

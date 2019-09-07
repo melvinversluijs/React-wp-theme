@@ -1,33 +1,34 @@
-import axios from "axios";
+/* eslint import/prefer-default-export: 0 */
+import axios from 'axios';
 import {
   GET_MAIN_MENU_REQUEST,
   GET_MAIN_MENU_SUCCESS,
-  GET_MAIN_MENU_FAILURE
-} from "./types";
+  GET_MAIN_MENU_FAILURE,
+} from './types';
 
 /**
  * Get main menu.
  */
-export const getMainMenu = () => async dispatch => {
+export const getMainMenuAction = () => async dispatch => {
   try {
     // Set loader.
     dispatch({
-      type: GET_MAIN_MENU_REQUEST
+      type: GET_MAIN_MENU_REQUEST,
     });
 
     // Send request.
-    const res = await axios.get("/react-theme/v1/navigation/main");
+    const res = await axios.get('/react-theme/v1/navigation/main');
 
     // Dispatch action.
     dispatch({
       type: GET_MAIN_MENU_SUCCESS,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     // Handle errors.
     dispatch({
       type: GET_MAIN_MENU_FAILURE,
-      payload: error
+      payload: error,
     });
   }
 };

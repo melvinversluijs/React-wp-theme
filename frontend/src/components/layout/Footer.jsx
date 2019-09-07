@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 /**
  * Footer component.
@@ -11,7 +11,10 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p className="footer__copyright">
-        &copy; {date.getFullYear()} &ndash; {WP_React.title}
+        &copy;
+        {date.getFullYear()}
+        &ndash;
+        {WP_React.title}
       </p>
     </footer>
   );

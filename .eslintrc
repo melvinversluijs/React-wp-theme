@@ -9,14 +9,17 @@
       "jsx": true
     }
   },
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier", "import", "react"],
+  "extends": ["airbnb", "prettier", "react-app"],
+  "plugins": ["prettier", "import", "react", "react-hooks"],
   "env": {
     "browser": true,
-    "jest": false
+    "jest": false,
+    "es6": true
   },
   "rules": {
-    "react/forbid-prop-types": 0,
-    "no-shadow": "warn"
+    "react/forbid-prop-types": 0
+  },
+  "globals": {
+    "WP_React": "readonly"
   }
 }

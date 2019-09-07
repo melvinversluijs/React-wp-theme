@@ -1,36 +1,36 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   GET_HOME_PAGE_REQUEST,
   GET_HOME_PAGE_SUCCESS,
   GET_HOME_PAGE_FAILURE,
   GET_PAGE_REQUEST,
   GET_PAGE_SUCCESS,
-  GET_PAGE_FAILURE
-} from "./types";
+  GET_PAGE_FAILURE,
+} from './types';
 
 /**
  * Get home page.
  */
-export const getHomePage = () => async dispatch => {
+export const getHomePageAction = () => async dispatch => {
   try {
     // Set loader.
     dispatch({
-      type: GET_HOME_PAGE_REQUEST
+      type: GET_HOME_PAGE_REQUEST,
     });
 
     // Send request.
-    const res = await axios.get("/react-theme/v1/pages/home");
+    const res = await axios.get('/react-theme/v1/pages/home');
 
     // Save to state.
     dispatch({
       type: GET_HOME_PAGE_SUCCESS,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     // Handle errors.
     dispatch({
       type: GET_HOME_PAGE_FAILURE,
-      payload: error
+      payload: error,
     });
   }
 };
@@ -40,11 +40,11 @@ export const getHomePage = () => async dispatch => {
  *
  * @param {int|string} pageId
  */
-export const getPage = pageId => async dispatch => {
+export const getPageAction = pageId => async dispatch => {
   try {
     // Set loader.
     dispatch({
-      type: GET_PAGE_REQUEST
+      type: GET_PAGE_REQUEST,
     });
 
     // Get page by id.
@@ -53,13 +53,13 @@ export const getPage = pageId => async dispatch => {
     // Save to state.
     dispatch({
       type: GET_PAGE_SUCCESS,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     // Handle errors.
     dispatch({
       type: GET_PAGE_FAILURE,
-      payload: error
+      payload: error,
     });
   }
 };

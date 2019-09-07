@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { getLogo } from "../../actions/general";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getLogoAction } from '../../actions/general';
 
 /**
  * Logo component.
@@ -35,16 +35,20 @@ const Logo = ({ logo, getLogo }) => {
 // Set component property types.
 Logo.propTypes = {
   logo: PropTypes.object,
-  getLogo: PropTypes.func.isRequired
+  getLogo: PropTypes.func.isRequired,
+};
+
+Logo.defaultProps = {
+  logo: null,
 };
 
 // Map application state to component state.
 const mapStateToProps = state => ({
-  logo: state.general.logo
+  logo: state.general.logo,
 });
 
 // Export component.
 export default connect(
   mapStateToProps,
-  { getLogo }
+  { getLogo: getLogoAction },
 )(Logo);

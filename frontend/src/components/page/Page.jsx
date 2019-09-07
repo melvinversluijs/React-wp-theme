@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getPage, getHomePage } from "../../actions/pages";
-import PostsOverview from "../posts/PostsOverview";
+/* eslint react/no-danger: 0 */
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getPageAction, getHomePageAction } from '../../actions/pages';
+import PostsOverview from '../posts/PostsOverview';
 
 /**
  * Page component.
@@ -12,23 +13,23 @@ const Page = ({
   getPage,
   getHomePage,
   match,
-  pageId
+  pageId,
 }) => {
   useEffect(() => {
-    if (pageId && (!page || !page.id !== pageId)) {
+    if (!home && !blog) {
+      getHomePage();
+    }
+
+    if (pageId && (!page || page.id !== pageId)) {
       getPage(pageId);
     } else if (
       match &&
       match.params &&
-      (!page || !page.id !== match.params.id)
+      (!page || page.id !== Number(match.params.id))
     ) {
       getPage(match.params.id);
     }
-
-    if (!home && !blog) {
-      getHomePage();
-    }
-  }, [getPage, getHomePage, match, pageId, home, blog]);
+  }, [getPage, getHomePage, match, pageId, home, blog, page]);
 
   // Set post overview if it is the blog page.
   if (page && page.id === blog) {
@@ -53,16 +54,16 @@ const Page = ({
 Page.propTypes = {
   page: PropTypes.object,
   getPage: PropTypes.func.isRequired,
-  getHomePage: PropTypes.func.isRequired
+  getHomePage: PropTypes.func.isRequired,
 };
 
 // Map application state to component properties.
 const mapStateToProps = state => ({
-  pages: state.pages
+  pages: state.pages,
 });
 
 // Export component.
 export default connect(
   mapStateToProps,
-  { getPage, getHomePage }
+  { getPage: getPageAction, getHomePage: getHomePageAction },
 )(Page);

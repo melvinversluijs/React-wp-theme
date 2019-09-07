@@ -12,14 +12,7 @@
     "test": "eslint --ext jsx,js ./frontend/src"
   },
   "dependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
     "axios": "^0.19.0",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^2.1.1",
-    "mini-css-extract-plugin": "^0.7.0",
-    "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -27,12 +20,7 @@
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "url-loader": "^2.0.0",
-    "webpack": "^4.33.0",
-    "webpack-cli": "^3.3.3"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.6.1",
@@ -40,12 +28,27 @@
     "eslint": "^6.2.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.1.0",
+    "eslint-config-react-app": "^5.0.1",
+    "eslint-plugin-flowtype": "^4.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
     "file-loader": "^4.0.0",
     "postcss-loader": "^3.0.0",
-    "postcss-preset-env": "^6.7.0"
+    "postcss-preset-env": "^6.7.0",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^2.0.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^2.1.1",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.12.0",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0"
   }
 }

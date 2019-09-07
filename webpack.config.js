@@ -4,7 +4,7 @@ module.exports = {
   devtool: 'inline-source-map',
   target: 'web',
   entry: {
-    main: './frontend/src/main.js',
+    main: './frontend/src/main.jsx',
   },
   output: {
     path: `${__dirname}/frontend/dist`,
