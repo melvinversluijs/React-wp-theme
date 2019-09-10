@@ -1,0 +1,19 @@
+version: 2.1
+jobs:
+  test:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - checkout
+      - run:
+          name: NodeJS version
+          command: node --version
+      - run:
+          name: Yarn install
+          command: yarn install
+      - run:
+          name: ESlint
+          command: yarn run test:eslint
+      - run:
+          name: Stylelint
+          command: yarn run test:stylelint
