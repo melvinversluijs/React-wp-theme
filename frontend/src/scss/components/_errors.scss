@@ -1,14 +1,12 @@
 .errors {
   width: 100%;
   margin: 1rem 0;
-
   display: flex;
   justify-content: center;
 
   &__list {
     list-style-type: none;
     width: 100%;
-
     display: flex;
     flex-direction: column;
   }

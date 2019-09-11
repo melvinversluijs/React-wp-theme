@@ -46,6 +46,52 @@
   }
 
   // Header navigation.
+  &__nav-link,
+  &__nav-link:link,
+  &__nav-link:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: $color-white;
+    transition: all 0.2s;
+  }
+
+  // Icon for nav items with children.
+  &__nav-link-toggle {
+    border: none;
+    background: transparent;
+    color: $color-white;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    outline: none;
+
+    i {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-top-width: 2px;
+      border-top-style: solid;
+      border-right-width: 2px;
+      border-right-style: solid;
+      color: currentColor;
+      transform: rotate(135deg) translateY(5px);
+    }
+
+    @include responsive-tablet-landscape {
+      padding-left: 1rem;
+      border-left: solid 1px $color-white;
+    }
+  }
+
+  // Nav item hover.
+  &__nav-item {
+    &:hover > .header__nav-link,
+    &:hover > .header__nav-link-toggle {
+      outline: none;
+      color: $color-tertiary;
+    }
+  }
+
   &__nav-list {
     list-style: none;
 
@@ -85,24 +131,6 @@
     @include responsive-tablet-landscape {
       display: none;
     }
-  }
-
-  &__nav-item {
-    &:hover > .header__nav-link,
-    &:hover > .header__nav-link-toggle {
-      outline: none;
-      color: $color-tertiary;
-    }
-  }
-
-  // Default nav link styling.
-  &__nav-link,
-  &__nav-link:link,
-  &__nav-link:visited {
-    display: inline-block;
-    text-decoration: none;
-    color: $color-white;
-    transition: all 0.2s;
   }
 
   // Hover for nav item with children.
@@ -147,34 +175,6 @@
         top: 0;
         width: 100%;
       }
-    }
-  }
-
-  // Icon for nav items with children.
-  &__nav-link-toggle {
-    border: none;
-    background: transparent;
-    color: $color-white;
-    cursor: pointer;
-    margin-left: 0.5rem;
-    outline: none;
-
-    i {
-      content: '';
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-top-width: 2px;
-      border-top-style: solid;
-      border-right-width: 2px;
-      border-right-style: solid;
-      color: currentColor;
-      transform: rotate(135deg) translateY(5px);
-    }
-
-    @include responsive-tablet-landscape {
-      padding-left: 1rem;
-      border-left: solid 1px $color-white;
     }
   }
 

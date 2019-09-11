@@ -1,6 +1,6 @@
 # React Wordpress theme
 
-[![CircleCI](https://circleci.com/gh/melvinversluijs/React-wp-theme/tree/master.svg?style=shield)](https://circleci.com/gh/melvinversluijs/React-wp-theme/tree/master)
+[![test](https://circleci.com/gh/melvinversluijs/React-wp-theme/tree/master.svg?style=shield)](https://circleci.com/gh/melvinversluijs/React-wp-theme/tree/master)
 
 A project to test out the capabilities of the Wordpress API
 and the use of React in a Wordpress theme.
