@@ -12,9 +12,9 @@ const Footer = () => {
     <footer className="footer">
       <p className="footer__copyright">
         &copy;
-        {date.getFullYear()}
+        {` ${date.getFullYear()} `}
         &ndash;
-        {WP_React.title}
+        {` ${WP_React.title}`}
       </p>
     </footer>
   );
