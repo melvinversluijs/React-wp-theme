@@ -35,14 +35,29 @@ jobs:
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push $IMAGE_NAME:latest
 
+  deploy:
+    docker:
+      - image: circleci/buildpack-deps
+    steps:
+      - run:
+          name: Deploy new Docker image to production
+          command: ssh -v $SSH_USER@$SSH_HOST "docker stack deploy -c $DOCKER_STACK_FILE $DOCKER_STACK_NAME"
+
 workflows:
   version: 2
-  test_and_build:
+  test_build_and_deploy:
     jobs:
       - test
       - build:
           requires:
             - test
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - test
+            - build
           filters:
             branches:
               only: master
