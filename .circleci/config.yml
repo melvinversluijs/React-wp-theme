@@ -41,7 +41,9 @@ jobs:
     steps:
       - run:
           name: Deploy new Docker image to production
-          command: ssh -v $SSH_USER@$SSH_HOST "docker stack deploy -c $DOCKER_STACK_FILE $DOCKER_STACK_NAME"
+          command: |
+            ssh -v -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST 
+            "docker stack deploy -c $DOCKER_STACK_FILE $DOCKER_STACK_NAME"
 
 workflows:
   version: 2
