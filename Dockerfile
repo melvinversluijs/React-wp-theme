@@ -21,7 +21,7 @@ WORKDIR /usr/src/wordpress/wp-content/themes/React-wp-theme
 # Build resources.
 RUN yarn install && yarn run build
 
-RUN rm -rf node_modules && yarn install --production
+RUN rm -rf node_modules
 
 # Set permission.
 RUN chown -R www-data:www-data .
