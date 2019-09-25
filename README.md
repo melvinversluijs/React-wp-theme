@@ -31,4 +31,9 @@ While developing you can use the `yarn run dev` command to let webpack watch you
 
 After developing use the `yarn run build` to create a production ready dist package.
 
-Don't forget the use the `yarn run test:eslint` to check your code style.
+Don't forget the use the `yarn run test:eslint` and `yarn run test:stylelint` to check your code style.
+
+## Docker
+
+A Docker image is included with this repo: [melvinversluijs/react-wp-theme](https://cloud.docker.com/u/melvinversluijs/repository/docker/melvinversluijs/react-wp-theme).
+You can use this to easily spin up a docker container containing wordpress with this theme added to the themes folder.
