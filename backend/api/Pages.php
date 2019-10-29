@@ -42,12 +42,13 @@ class Pages extends AbstractApi
      */
     public function getHomePage(): \WP_REST_Response
     {
-        $result = [];
+        $result = ['staticPages' => false];
 
         // Check if there is a page for home.
         if (\get_option('show_on_front') === 'page') {
-            $result['home'] = (int) \get_option('page_on_front') ?: null;
-            $result['blog'] = (int) \get_option('page_for_posts') ?: null;
+            $result['home']        = (int) \get_option('page_on_front') ?: null;
+            $result['blog']        = (int) \get_option('page_for_posts') ?: null;
+            $result['staticPages'] = true;
         }
 
         // Return as json.

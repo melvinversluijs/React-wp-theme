@@ -1,10 +1,11 @@
-import { GET_HOME_PAGE_SUCCESS, GET_PAGE_SUCCESS } from "../actions/types";
+import { GET_HOME_PAGE_SUCCESS, GET_PAGE_SUCCESS } from '../actions/types';
 
 // Set initial state.
 const initialState = {
+  staticPages: null,
   home: null,
   blog: null,
-  page: null
+  page: null,
 };
 
 // Export reducer function.
@@ -17,13 +18,12 @@ export default function(state = initialState, action) {
     case GET_HOME_PAGE_SUCCESS:
       return {
         ...state,
-        home: payload.home,
-        blog: payload.blog
+        ...payload,
       };
     case GET_PAGE_SUCCESS:
       return {
         ...state,
-        page: payload
+        page: payload,
       };
     default:
       return state;

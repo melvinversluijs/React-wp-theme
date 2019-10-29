@@ -10,13 +10,18 @@ import Page from '../page/Page';
  *
  * @param {Object} param0
  */
-const Home = ({ home, getHomePage }) => {
+const Home = ({ pages: { staticPages, home }, getHomePage }) => {
   // Call get home page when component loads.
   useEffect(() => {
-    if (!home) {
+    if (staticPages === null) {
       getHomePage();
     }
-  }, [getHomePage, home]);
+  }, [getHomePage, staticPages]);
+
+  // Do not load anything until home page data is loaded.
+  if (staticPages === null) {
+    return '';
+  }
 
   // If no homepage was found, show blog overview.
   if (!home) {
@@ -38,7 +43,7 @@ Home.defaultProps = {
 
 // Map application state to component state.
 const mapStateToProps = state => ({
-  home: state.pages.home,
+  pages: state.pages,
 });
 
 // Export component.

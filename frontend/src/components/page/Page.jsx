@@ -9,14 +9,14 @@ import PostsOverview from '../posts/PostsOverview';
  * Page component.
  */
 const Page = ({
-  pages: { home, blog, page },
+  pages: { staticPages, blog, page },
   getPage,
   getHomePage,
   match,
   pageId,
 }) => {
   useEffect(() => {
-    if (!home && !blog) {
+    if (staticPages === null) {
       getHomePage();
     }
 
@@ -29,10 +29,10 @@ const Page = ({
     ) {
       getPage(match.params.id);
     }
-  }, [getPage, getHomePage, match, pageId, home, blog, page]);
+  }, [getPage, getHomePage, match, pageId, staticPages, page]);
 
   // Set post overview if it is the blog page.
-  if (page && page.id === blog) {
+  if (staticPages !== null && page && page.id === blog) {
     return <PostsOverview />;
   }
 
