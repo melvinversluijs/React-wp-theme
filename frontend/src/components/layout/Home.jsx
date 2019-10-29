@@ -33,12 +33,8 @@ const Home = ({ pages: { staticPages, home }, getHomePage }) => {
 
 // Set component property types.
 Home.propTypes = {
-  home: PropTypes.number,
+  pages: PropTypes.object.isRequired,
   getHomePage: PropTypes.func.isRequired,
-};
-
-Home.defaultProps = {
-  home: null,
 };
 
 // Map application state to component state.
