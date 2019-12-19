@@ -1,4 +1,4 @@
-FROM wordpress:php7.3-apache
+FROM wordpress:php7.4-apache
 
 LABEL maintainer="Melvin Versluijs <https://github.com/melvinversluijs>"
 LABEL description="Wordpress container with the React wp theme installed and built by default."
