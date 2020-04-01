@@ -52,9 +52,17 @@ const Page = ({
 
 // Set component property types.
 Page.propTypes = {
-  page: PropTypes.object,
+  pages: PropTypes.object.isRequired,
   getPage: PropTypes.func.isRequired,
   getHomePage: PropTypes.func.isRequired,
+  match: PropTypes.object,
+  pageId: PropTypes.number,
+};
+
+// Set component default property types.
+Page.defaultProps = {
+  match: null,
+  pageId: null,
 };
 
 // Map application state to component properties.
@@ -63,7 +71,7 @@ const mapStateToProps = state => ({
 });
 
 // Export component.
-export default connect(
-  mapStateToProps,
-  { getPage: getPageAction, getHomePage: getHomePageAction },
-)(Page);
+export default connect(mapStateToProps, {
+  getPage: getPageAction,
+  getHomePage: getHomePageAction,
+})(Page);
